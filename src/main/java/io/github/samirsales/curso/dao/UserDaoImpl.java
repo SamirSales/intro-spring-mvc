@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Repository;
+
 import io.github.samirsales.curso.domain.User;
 
+@Repository
 public class UserDaoImpl implements UserDao {
 
 	private static List<User> users;

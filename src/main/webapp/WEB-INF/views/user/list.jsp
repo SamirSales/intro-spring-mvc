@@ -13,7 +13,8 @@
 	<h1>List of users</h1>
 	<hr>
 	<div>
-		<a class="btn btn-default" href="#">New User</a>
+		<spring:url value="/user/register" var="register"></spring:url>
+		<a class="btn btn-default" href="${register}">New User</a>
 	</div>
 	<hr>
 	

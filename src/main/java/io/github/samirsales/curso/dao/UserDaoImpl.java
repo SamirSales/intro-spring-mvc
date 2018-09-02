@@ -20,10 +20,10 @@ public class UserDaoImpl implements UserDao {
 	private void createUsersList() {
 		if(users == null) {
 			users = new ArrayList<>();
-			users.add(new User(1l, "John", "Soares"));
-			users.add(new User(2l, "Andrio", "Antônio"));
-			users.add(new User(3l, "Diego", "Maia"));
-			users.add(new User(4l, "Fabiana", "Ângelo"));
+			users.add(new User(1L, "John", "Soares"));
+			users.add(new User(2L, "Andrio", "Antônio"));
+			users.add(new User(3L, "Diego", "Maia"));
+			users.add(new User(4L, "Fabiana", "Ângelo"));
 		}		
 	}
 

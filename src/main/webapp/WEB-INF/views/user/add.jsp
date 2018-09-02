@@ -19,8 +19,9 @@
 		<hr>
 
 		<div class="panel-default">
-			<spring:url value="/user/save" var="save"></spring:url>
-			<form:form modelAttribute="user" action="${save }" method="post">
+			<spring:url value="${user.id == null ? '/user/save' : '/user/update'}" var="save" />
+			<form:form modelAttribute="user" action="${save}" method="post">
+				<form:hidden path="id"/>
 				<div class="form-group">
 					<label for="firstName">First name: </label>
 					<form:input path="firstName" class="form-control" />

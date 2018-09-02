@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,4 +39,19 @@ public class UserController {
 		attr.addFlashAttribute("message", "User has been saved successfully!");
 		return "redirect:/user/all";
 	}
+	
+	@GetMapping("/update/{id}")
+	public ModelAndView preUpdate(@PathVariable("id") Long id, ModelMap model) {
+		User user = userDao.getUser(id);
+		model.addAttribute("user", user);
+		return new ModelAndView("/user/add", model);
+	}
+	
+	@PostMapping("/update")
+	public ModelAndView update(@ModelAttribute("user") User user, RedirectAttributes attr) {
+		userDao.update(user);
+		attr.addFlashAttribute("message", "User has been updated successfully!");
+		return new ModelAndView("redirect:/user/all");
+	}
+	
 }

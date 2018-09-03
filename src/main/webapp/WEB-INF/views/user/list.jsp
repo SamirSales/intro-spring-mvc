@@ -39,7 +39,9 @@
 					<td>
 						<spring:url value="/user/update/${user.id}" var="update"></spring:url>
 						<a class="btn btn-info" href="${update}">Update</a> 
-						<a class="btn btn-danger" href="#">Delete</a>
+						
+						<spring:url value="/user/delete/${user.id}" var="delete"></spring:url>
+						<a class="btn btn-danger" href="${delete}">Delete</a>
 					</td>
 				</tr>
 			</c:forEach>

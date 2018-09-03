@@ -54,4 +54,11 @@ public class UserController {
 		return new ModelAndView("redirect:/user/all");
 	}
 	
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable("id") Long id, RedirectAttributes attr) {
+		userDao.remove(id);
+		attr.addFlashAttribute("message", "User has been removed successfully!");
+		return "redirect:/user/all";
+	}
+	
 }

@@ -44,8 +44,8 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public void remove(User user) {
-		users.removeIf((u) -> u.getId().equals(user.getId()));
+	public void remove(long id) {
+		users.removeIf((u) -> u.getId().equals(id));
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package io.github.samirsales.curso.dao;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,10 +21,11 @@ public class UserDaoImpl implements UserDao {
 	private void createUsersList() {
 		if(users == null) {
 			users = new ArrayList<>();
-			users.add(new User(1L, "John", "Soares"));
-			users.add(new User(2L, "Andrio", "Antônio"));
-			users.add(new User(3L, "Diego", "Maia"));
+			users.add(new User(1L, "John", "Soares", LocalDate.of(1992, 5, 10)));
+			users.add(new User(2L, "Andrio", "Antônio", LocalDate.of(1990, 5, 10)));
+			users.add(new User(3L, "Diego", "Maia", LocalDate.of(1982, 5, 10)));
 			users.add(new User(4L, "Fabiana", "Ângelo"));
+			users.add(new User(5L, "Samir", "Sales"));
 		}		
 	}
 
@@ -40,6 +42,7 @@ public class UserDaoImpl implements UserDao {
 			.forEach((u) -> {
 				u.setFirstName(user.getFirstName());
 				u.setLastName(user.getLastName());
+				u.setDtBirth(user.getDtBirth());
 			});
 	}
 

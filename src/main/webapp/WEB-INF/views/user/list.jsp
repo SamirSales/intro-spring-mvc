@@ -28,6 +28,7 @@
 			<tr>
 				<th>ID</th>
 				<th>NAME</th>
+				<th>DATE OF BIRTH</th>
 				<th>ACTION</th>
 			</tr>
 		</thead>
@@ -36,6 +37,10 @@
 				<tr>
 					<td>${user.id}</td>
 					<td>${user.firstName}&nbsp;${user.lastName}</td>
+					<td>
+						<f:parseDate var="date" value="${user.dtBirth}" pattern="yyyy-MM-dd" type="date" />
+						<f:formatDate value="${date}" pattern="dd/MM/yyyy" type="date" />
+					</td>
 					<td>
 						<spring:url value="/user/update/${user.id}" var="update"></spring:url>
 						<a class="btn btn-info" href="${update}">Update</a> 

@@ -31,6 +31,10 @@
 					<form:input path="lastName" class="form-control" />
 				</div>
 				<div class="form-group">
+					<label for="lastName">Birth date: </label>
+					<form:input path="dtBirth" class="form-control" type="date"/>
+				</div>
+				<div class="form-group">
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</div>
 			</form:form>

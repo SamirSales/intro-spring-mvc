@@ -29,6 +29,7 @@
 				<th>ID</th>
 				<th>NAME</th>
 				<th>DATE OF BIRTH</th>
+				<th>GENDER</th>
 				<th>ACTION</th>
 			</tr>
 		</thead>
@@ -41,13 +42,15 @@
 						<f:parseDate var="date" value="${user.dtBirth}" pattern="yyyy-MM-dd" type="date" />
 						<f:formatDate value="${date}" pattern="dd/MM/yyyy" type="date" />
 					</td>
+					<td>${user.gender.value}</td>
+					
 					<td>
 						<spring:url value="/user/update/${user.id}" var="update"></spring:url>
 						<a class="btn btn-info" href="${update}">Update</a> 
 						
 						<spring:url value="/user/delete/${user.id}" var="delete"></spring:url>
 						<a class="btn btn-danger" href="${delete}">Delete</a>
-					</td>
+					</td>					
 				</tr>
 			</c:forEach>
 		</tbody>

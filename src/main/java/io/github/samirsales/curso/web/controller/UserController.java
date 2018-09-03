@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import io.github.samirsales.curso.dao.UserDao;
+import io.github.samirsales.curso.domain.Gender;
 import io.github.samirsales.curso.domain.User;
 
 @Controller
@@ -30,6 +31,7 @@ public class UserController {
 	
 	@GetMapping("/register")
 	public String register(@ModelAttribute("user") User user, ModelMap model) {
+		model.addAttribute("genders", Gender.values());
 		return "/user/add";
 	}
 	

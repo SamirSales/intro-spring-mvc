@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
 
+import io.github.samirsales.curso.domain.Gender;
 import io.github.samirsales.curso.domain.User;
 
 @Repository
@@ -21,11 +22,11 @@ public class UserDaoImpl implements UserDao {
 	private void createUsersList() {
 		if(users == null) {
 			users = new ArrayList<>();
-			users.add(new User(1L, "John", "Soares", LocalDate.of(1992, 5, 10)));
-			users.add(new User(2L, "Andrio", "Antônio", LocalDate.of(1990, 5, 10)));
-			users.add(new User(3L, "Diego", "Maia", LocalDate.of(1982, 5, 10)));
-			users.add(new User(4L, "Fabiana", "Ângelo"));
-			users.add(new User(5L, "Samir", "Sales"));
+			users.add(new User(1L, "John", "Soares", LocalDate.of(1992, 5, 10), Gender.MALE));
+			users.add(new User(2L, "Andrio", "Antônio", LocalDate.of(1990, 5, 10), Gender.MALE));
+			users.add(new User(3L, "Diego", "Maia", LocalDate.of(1982, 5, 10), Gender.MALE));
+			users.add(new User(4L, "Fabiana", "Ângelo", LocalDate.of(1981, 5, 10), Gender.FEMALE));
+			users.add(new User(5L, "Samir", "Sales", LocalDate.of(1989, 3, 10), Gender.MALE));
 		}		
 	}
 
@@ -43,6 +44,7 @@ public class UserDaoImpl implements UserDao {
 				u.setFirstName(user.getFirstName());
 				u.setLastName(user.getLastName());
 				u.setDtBirth(user.getDtBirth());
+				u.setGender(user.getGender());
 			});
 	}
 

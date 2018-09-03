@@ -31,6 +31,12 @@
 					<form:input path="lastName" class="form-control" />
 				</div>
 				<div class="form-group">
+					<label for="lastName">Gender: </label>
+					<form:select path="gender" class="form-control">
+						<form:options items="${genders }" itemLabel="value"/>
+					</form:select>
+				</div>
+				<div class="form-group">
 					<label for="lastName">Birth date: </label>
 					<form:input path="dtBirth" class="form-control" type="date"/>
 				</div>

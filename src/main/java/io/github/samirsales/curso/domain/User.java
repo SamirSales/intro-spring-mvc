@@ -14,6 +14,8 @@ public class User {
 	@DateTimeFormat(iso = ISO.DATE)
 	private LocalDate dtBirth;
 	
+	private Gender gender;
+
 	public User() {
 		
 	}
@@ -24,7 +26,6 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
-
 	
 	public User(Long id, String firstName, String lastName, LocalDate dtBorn) {
 		super();
@@ -32,6 +33,15 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dtBirth = dtBorn;
+	}
+	
+	public User(Long id, String firstName, String lastName, LocalDate dtBirth, Gender gender) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dtBirth = dtBirth;
+		this.gender = gender;
 	}
 	
 	public String getFirstName() {
@@ -64,5 +74,13 @@ public class User {
 
 	public void setDtBirth(LocalDate dtBirth) {
 		this.dtBirth = dtBirth;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 }

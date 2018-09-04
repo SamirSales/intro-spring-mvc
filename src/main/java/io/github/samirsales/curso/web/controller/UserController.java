@@ -1,8 +1,11 @@
 package io.github.samirsales.curso.web.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,7 +39,12 @@ public class UserController {
 	}
 	
 	@PostMapping("/save")
-	public String save(@ModelAttribute("user") User user, RedirectAttributes attr) {
+	public String save(@Valid @ModelAttribute("user") User user, BindingResult result, 
+			RedirectAttributes attr) {
+		if(result.hasErrors()) {
+			return "/user/add";
+		}
+		
 		userDao.save(user);
 		attr.addFlashAttribute("message", "User has been saved successfully!");
 		return "redirect:/user/all";
@@ -50,7 +58,11 @@ public class UserController {
 	}
 	
 	@PostMapping("/update")
-	public ModelAndView update(@ModelAttribute("user") User user, RedirectAttributes attr) {
+	public ModelAndView update(@Valid @ModelAttribute("user") User user, BindingResult result, 
+			RedirectAttributes attr) {
+		if(result.hasErrors()) {
+			return new ModelAndView("/user/add");
+		}
 		userDao.update(user);
 		attr.addFlashAttribute("message", "User has been updated successfully!");
 		return new ModelAndView("redirect:/user/all");

@@ -2,15 +2,26 @@ package io.github.samirsales.curso.domain;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 public class User {
 
 	private Long id;
+	
+	@NotBlank
+	@Size(min = 3, max = 50)
 	private String firstName;
+	
+	@NotBlank
+	@Size(min = 3, max = 50, message = "Field must have between {min} and {max} characters.")
 	private String lastName;
 	
+	@NotNull(message = "This birth date field is required.")
 	@DateTimeFormat(iso = ISO.DATE)
 	private LocalDate dtBirth;
 	

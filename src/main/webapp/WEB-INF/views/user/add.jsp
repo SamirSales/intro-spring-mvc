@@ -25,10 +25,12 @@
 				<div class="form-group">
 					<label for="firstName">First name: </label>
 					<form:input path="firstName" class="form-control" />
+					<form:errors path="firstName" cssClass="label label-danger" />
 				</div>
 				<div class="form-group">
 					<label for="lastName">Last name: </label>
 					<form:input path="lastName" class="form-control" />
+					<form:errors path="lastName" cssClass="label label-danger" />
 				</div>
 				<div class="form-group">
 					<label for="lastName">Gender: </label>
@@ -39,6 +41,7 @@
 				<div class="form-group">
 					<label for="lastName">Birth date: </label>
 					<form:input path="dtBirth" class="form-control" type="date"/>
+					<form:errors path="dtBirth" cssClass="label label-danger" />
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary">Submit</button>

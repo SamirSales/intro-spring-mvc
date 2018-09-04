@@ -5,8 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Users</title>
+	<meta charset="UTF-8">
+	<title>Users</title>
+	<spring:url var="css" value="/static/css/bootstrap.css" />
+	<link type="text/css" rel="stylesheet" href="${css}" />
 </head>
 <body>
 <div class="container">
@@ -18,7 +20,7 @@
 	</div>
 	<hr>
 	
-	<div class="panel-default">
+	<div class="${message == null ? 'panel-default' : 'panel-success'}">
 		<div class="panel-heading">
 			<span>${message == null ? '&nbsp;' : message}</span>
 		</div>

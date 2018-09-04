@@ -5,8 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>User's Registration</title>
+	<meta charset="UTF-8">
+	<title>User's Registration</title>
+	<spring:url var="css" value="/static/css/bootstrap.css" />
+	<link type="text/css" rel="stylesheet" href="${css}" />
 </head>
 <body>
 	<div class="container">
